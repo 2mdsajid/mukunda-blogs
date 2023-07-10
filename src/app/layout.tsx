@@ -1,8 +1,7 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-
-const inter = Inter({ subsets: ['latin'] })
+import ThemeWrapper from '../libs/ThemeWrapper'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -16,7 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+      <ThemeWrapper>
+          {children}
+        </ThemeWrapper>
+        </body>
     </html>
   )
 }
