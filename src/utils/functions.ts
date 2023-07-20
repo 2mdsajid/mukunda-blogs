@@ -29,3 +29,40 @@ export const setUniqueUserId = async () => {
         return uniqueid;
     }
 }
+
+// to extract url from yt video url
+export function extractVideoId(url: string): string {
+    const regExp =
+        /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=|\?v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+
+    if (match && match[2]) {
+        return match[2];
+    } else {
+        throw new Error('Invalid YouTube URL');
+    }
+}
+
+// get file extension
+export function getFileType(url: string): string {
+    const fileExtension = url.split('.').pop()?.toLowerCase();
+
+    if (fileExtension) {
+        switch (fileExtension) {
+            case 'mp3':
+                return 'audio';
+            case 'mp4':
+            case 'mov':
+            case 'avi':
+                return 'video';
+            case 'jpg':
+            case 'jpeg':
+            case 'png':
+                return 'image';
+            default:
+                return 'Unknown';
+        }
+    }
+
+    return 'Unknown';
+}

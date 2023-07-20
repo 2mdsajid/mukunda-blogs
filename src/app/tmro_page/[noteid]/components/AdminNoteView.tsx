@@ -3,44 +3,33 @@
 import React, { FormEvent, useEffect, useState } from 'react'
 import Cookies from 'js-cookie';
 import Image from 'next/image';
-import { BACKEND, FRONTEND } from '@/utils/data';
+import { FRONTEND } from '@/utils/data';
 import { SingleNoteProps, TypeComment } from '@/utils/types';
 import { ParsedElement, setUniqueUserId } from '@/utils/functions';
+import CommentsDisplay from '@/app/[noteid]/components/CommentsDisplay';
+import LikesComponent from '@/app/[noteid]/components/LikesComponent';
+import SocialMediaShare from '@/app/[noteid]/components/SocialMediaShare';
 
-import LikesComponent from './LikesComponent';
-import CommentsDisplay from './CommentsDisplay';
-import SocialMediaShare from './SocialMediaShare';
+
 // import { useRouter } from 'next/navigation';
 
 
-const SingleNote = ({ note }: SingleNoteProps) => {
-    const [uniqueid,setUniqueid] = useState('')
+const AdminNoteView = ({ note }: SingleNoteProps) => {
+    const [uniqueid, setUniqueid] = useState('')
+    const [admin, setAdmin] = useState<boolean>(false)
     // const { query, isReady } = useRouter()
 
-    // const blogurl = encodeURIComponent(FRONTEND + '/' + note.noteid)
-
-    const blogurl = `https://aayushmakafle.com.np/Microsoft-One-Note:-Digital-Notetaking-with-Laptops`
-    // const keywords = note.keywords?.split(',') || [];
+    const blogurl = encodeURIComponent(FRONTEND + '/' + note.noteid)
 
     const AddViews = async () => {
+        console.log('views')
+
         const uniqueid = await setUniqueUserId()
         setUniqueid(uniqueid)
 
         const isAdminCookie = Cookies.get('isAdmin');
-        if (isAdminCookie) {
-            return
-        }
-        
-        // const res = await fetch(BACKEND + '/addviews', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({
-        //         id: note._id,
-        //     }),
-        // });
-        // const data = await res.json();
+        { isAdminCookie && setAdmin(JSON.parse(isAdminCookie)) }
+
     }
 
     useEffect(() => {
@@ -69,7 +58,6 @@ const SingleNote = ({ note }: SingleNoteProps) => {
                                 </p>
                             )}
                         </div>
-
                         {/* <div className="flex flex-col text-sm md:text-lg ">
                             <p className="font-semibold ">Keywords:</p>
                             <p className='font-medium flex flex-wrap text-gray-700 dark:text-gray-500 '>
@@ -95,7 +83,7 @@ const SingleNote = ({ note }: SingleNoteProps) => {
                 </div>
 
                 <div className="flex items-center flex-col w-full justify-between my-10">
-                    {uniqueid  && <CommentsDisplay isadmin={false} notecomments={note.comments} uniqueid={uniqueid} id={note._id} />}
+                    {uniqueid && <CommentsDisplay isadmin={true} notecomments={note.comments} uniqueid={uniqueid} id={note._id} />}
                 </div>
 
             </div>
@@ -106,11 +94,11 @@ const SingleNote = ({ note }: SingleNoteProps) => {
     )
 }
 
-export default SingleNote
+export default AdminNoteView
 
 
 
-            {/* <Head>
+{/* <Head>
                 <title>{note.title}</title>
                 <meta name='description' content={note.intro} />
                 <meta http-equiv="X-UA-Compatible" content="IE=edge" />

@@ -4,7 +4,6 @@ export const FRONTEND = 'http://localhost:3000'
 export const BACKEND = 'http://localhost:3001'
 
 
-
 export const dummyBlog = {
   isupdated: [Object],
   _id: '64806daf14ca99560c32a0f5',
@@ -124,6 +123,5 @@ export const dummyBlogData: mongoNote[] = [
     rating: 3.8,
   },
 ];
-
 
 export const dummyBlogs = [dummyBlog]

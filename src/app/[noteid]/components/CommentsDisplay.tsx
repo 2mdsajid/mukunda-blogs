@@ -8,7 +8,8 @@ import { TypeComment } from '@/utils/types';
 import React, { FormEvent, useEffect, useState } from 'react'
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
-const CommentsDisplay = ({ notecomments, uniqueid, id }: { notecomments: TypeComment[] | undefined, uniqueid: string, id: string }) => {
+const CommentsDisplay = ({ isadmin,notecomments, uniqueid, id }: {isadmin:boolean, notecomments: TypeComment[] | undefined, uniqueid: string, id: string }) => {
+console.log("🚀 ~ file: CommentsDisplay.tsx:12 ~ CommentsDisplay ~ isadmin:", isadmin)
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -195,6 +196,7 @@ const CommentsDisplay = ({ notecomments, uniqueid, id }: { notecomments: TypeCom
                         {comments.map((comment, index) => (
                             <li className='mt-[1.1rem]' key={index}>
                                 <p className="font-bold text-xl text-dark-accent">{comment.name}</p>
+                                {isadmin && <p className='font-semibold mb-4 text-gray-600 dark:text-gray-400'>{comment.email}</p>}
                                 <p>{comment.comment}</p>
 
                                 {/* comments likes and reply btn */}
@@ -219,6 +221,7 @@ const CommentsDisplay = ({ notecomments, uniqueid, id }: { notecomments: TypeCom
                                     {comment.replies.map((reply, index) => {
                                         return <div key={index} className='my-2'>
                                             <p className="font-semibold text-lg">{reply.name}</p>
+                                            {isadmin && <p>{reply.email}</p>}
                                             <p className='text-sm'>{reply.reply}</p>
                                         </div>
                                     })}

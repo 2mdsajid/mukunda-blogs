@@ -1,12 +1,11 @@
 'use client'
 
-import { setUniqueUserId } from '@/lib/utils/Functions'
+
+import { setUniqueUserId } from '@/utils/functions'
 import React, { useEffect } from 'react'
 
 const SetUser = () => {
     useEffect(()=>{
-
-
         setUniqueUserId()
     },[])
   return (

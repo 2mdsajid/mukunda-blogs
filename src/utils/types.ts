@@ -13,6 +13,7 @@ export type TypeParamProps = {
   };
   searchParams: {
     query: string
+    hexid:string
   }
 }
 
@@ -38,6 +39,7 @@ export type TransformedNote = {
   commentslength: number;
   views: number;
   upvotes: number;
+  category: string;
   isupdated?: {
     state: boolean;
     date: Date;
@@ -85,3 +87,43 @@ export type TypeInputProps = {
   setValueFunction: (val: string) => void,
   label: string
 }
+
+export type ImageInResponse = {
+  url: string;
+  caption: string;
+  source: string;
+  tag: string;
+}
+
+
+export type FormDataType = {
+  id: string;
+  title: string;
+  noteid: string;
+  category: string;
+  subcategory: string;
+  intro: string;
+  content: string;
+  keywords: string;
+  readtime: string;
+  introimage: string;
+};
+
+export type HighestViewNote = {
+  title: string, noteid: string, views: number
+}
+
+
+export type TypeDashContents = {
+  activeButton: string;
+  published: TransformedNote[];
+  drafts: TransformedNote[];
+  viewssum: number;
+  highestViewNote: HighestViewNote;
+}
+
+export type AdminCardsProps = {
+  note: TransformedNote;
+  handleEdit: (id: string) => void;
+}
+
