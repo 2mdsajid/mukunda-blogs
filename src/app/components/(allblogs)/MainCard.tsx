@@ -1,6 +1,7 @@
 import { dummyBlog } from '@/utils/data'
 import Image from 'next/image'
 import React from 'react'
+import BlogReadButton from '../reused/BlogReadButton'
 
 const MainCard = () => {
     const data = dummyBlog
@@ -20,7 +21,7 @@ const MainCard = () => {
                         })}
                     </p>
                 )}
-                <button className='px-3 py-1 mt-5  mb-3 border text-lg rounded-lg bg-dark-accent hover:bg-accent shadow-md font-semibold text-primary'>Read</button>
+<BlogReadButton id={data.noteid} />
             </div>
         </div>
     )
