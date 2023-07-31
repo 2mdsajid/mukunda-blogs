@@ -19,7 +19,7 @@ const ThemeSwitcher = () => {
 
   return (
       <div className="p-1 h-[2rem] w-[2rem] flex justify-center items-center border border-black dark:border-white rounded-full"> {theme === 'dark' ?
-        <button className="text-sm lg:text-3xl" onClick={() => setTheme("light")}>
+        <button className="text-3xl" onClick={() => setTheme("light")}>
           <HiSun />
         </button> :
         <button className="text-3xl" onClick={() => setTheme("dark")}>

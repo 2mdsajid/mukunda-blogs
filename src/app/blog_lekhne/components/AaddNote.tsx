@@ -192,7 +192,7 @@ const Addnote = ({id}:{id:string}) => {
     return (
         <div className={`min-h-screen w-screen  `}>
             {/* buttons to switch between editors */}
-            <div className='w-full  flex'>
+            <div className='w-full  flex border-t border-black'>
                 <button className={` border-black px-4 py-2 border-b ${currentState === 'basic' && 'bg-blue-200'}`} onClick={(e) => {
                     setCurrentstate(e.currentTarget.id)
                     setIsMiniPreview(true)
@@ -276,14 +276,10 @@ const Addnote = ({id}:{id:string}) => {
                                 value={formData.category}
                                 onChange={handleInputChange}
                                 className={`w-full p-2 rounded border border-gray-400  appearance-none focus:outline-none focus:shadow-outline`}>
-                                <option value="clinicalpractice">Clinical Practice</option>
-                                <option value="studyresources">Study Resources</option>
-                                <option value="productivitytips">Productivity Tips</option>
-                                <option value="lifeatiom">Life at IOM</option>
-                                <option value="genderissues">Gender Issues</option>
-                                <option value="bookreviews">Book Reviews</option>
-                                <option value="journals">Journals</option>
-                                <option value="technology">Technology</option>
+                                <option value="medicalstudent">Medical Student</option>
+                                <option value="mbbslife">MBBS Life</option>
+                                <option value="lifestyles">Lifestyles</option>
+                                <option value="historyofmedicine">History of Medicine</option>
                                 <option value="test">test</option>
                             </select>
                             <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">

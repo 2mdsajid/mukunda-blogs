@@ -9,7 +9,7 @@ const AllBlogs = () => {
         <div className='max-w-full h-max my-10'>
             <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10 py-4`}>
                 {array.map((note, index) => {
-                    return <div key={index} className={` my-5 m-2 border dark:border-black rounded-lg overflow-hidden shadow-md cursor-pointer hover:shadow-lg transform hover:scale-110 transition duration-300 ease-in-out`}>
+                    return <div key={index} className={` my-5 m-2 border dark:border-black rounded-lg overflow-hidden shadow-md cursor-pointer hover:shadow-lg transform hover:scale-105 transition duration-300 ease-in-out`}>
                         <MainCard />
                     </div>
                 })}

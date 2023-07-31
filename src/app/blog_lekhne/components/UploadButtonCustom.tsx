@@ -19,7 +19,6 @@ const UploadComponent = ({ onUploadComplete, onUploadError }: UploadComponentPro
 
   const [isLinkPreview, setIsLinkPreview] = useState<boolean>(false)
   const ToggleLInkPreview = () => {
-    console.log('pppppp')
     setIsLinkPreview(!isLinkPreview)
   }
 

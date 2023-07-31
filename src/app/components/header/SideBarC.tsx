@@ -43,19 +43,19 @@ const SideBarC = () => {
                     className='lg:hidden'>
                     <div className='w-[75vw] sm:w-[65vw] md:w-[50vw] flex flex-col space-y-5 px-5 pt-20 text-xl  bg-white dark:bg-dark-primary h-full'>
                         <div className='flex flex-col space-y-2'>
-                            <Link href='/friends' className='flex items-center text-black dark:text-white'>
+                            <Link href='/medicalstudent' className='flex items-center text-black dark:text-white'>
                                 <FiUsers className='mr-2' />
                                 Medical Student
                             </Link>
-                            <Link href='/blogs' className='flex items-center text-black dark:text-white'>
+                            <Link href='/mbbslife' className='flex items-center text-black dark:text-white'>
                                 <FiBook className='mr-2' />
                                 MBBS Life
                             </Link>
-                            <Link href='/services' className='flex items-center text-black dark:text-white'>
+                            <Link href='/lifestyles' className='flex items-center text-black dark:text-white'>
                                 <FiBriefcase className='mr-2' />
                                 Lifestyles
                             </Link>
-                            <Link href='/contact' className='flex items-center text-black dark:text-white'>
+                            <Link href='/historyofmedicines' className='flex items-center text-black dark:text-white'>
                                 <FiMail className='mr-2' />
                                 History Of Medicines
                             </Link>

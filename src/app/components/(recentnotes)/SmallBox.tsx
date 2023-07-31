@@ -5,7 +5,7 @@ import Image from 'next/image'
 const SmallBox = () => {
     const data = dummyBlog
     return (
-        <div className='w-full flex flex-col lg:flex-row border dark:border-black rounded-l-md shadow-lg cursor-pointer hover:shadow-lg transform hover:scale-110 transition duration-300 ease-in-out'>
+        <div className='w-full flex flex-col lg:flex-row border dark:border-black rounded-l-md shadow-lg cursor-pointer hover:shadow-lg transform hover:scale-105 transition duration-300 ease-in-out'>
             <Image className='w-full lg:w-[12rem] xl:w-[15rem] rounded-l-md' width={200} height={100} alt={data.intro} src={data.introimage} />
             <div className='lg:ml-2 p-1 px-2'>
                 <p className='flex space-x-4'><span>{data.author}</span><span>|</span><span>{data.readtime} read</span></p>

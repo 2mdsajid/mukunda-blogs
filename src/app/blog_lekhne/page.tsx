@@ -5,9 +5,9 @@ import KeyLayout from '../components/reused/KeyLayout'
 
 const page = (props: TypeParamProps) => {
   return (
-    <KeyLayout>
+
       <Addnote id={props.searchParams.hexid} />
-    </KeyLayout>
+
   )
 }
 
