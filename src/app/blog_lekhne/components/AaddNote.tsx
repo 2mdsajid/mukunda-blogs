@@ -50,7 +50,7 @@ const Addnote = ({id}:{id:string}) => {
         id: '',
         title: '',
         noteid: '',
-        category: 'clinicalpractice',
+        category: 'mbbslife',
         subcategory: '',
         intro: '',
         content: '',
@@ -276,10 +276,14 @@ const Addnote = ({id}:{id:string}) => {
                                 value={formData.category}
                                 onChange={handleInputChange}
                                 className={`w-full p-2 rounded border border-gray-400  appearance-none focus:outline-none focus:shadow-outline`}>
-                                <option value="medicalstudent">Medical Student</option>
                                 <option value="mbbslife">MBBS Life</option>
-                                <option value="lifestyles">Lifestyles</option>
-                                <option value="historyofmedicine">History of Medicine</option>
+                                <option value="politics">Politics</option>
+                                <option value="philosophy">philosophy</option>
+                                <option value="religion">religion</option>
+                                <option value="nepali">nepali</option>
+                                <option value="english">english</option>
+                                <option value="research">research</option>
+                                <option value="foryou">for you</option>
                                 <option value="test">test</option>
                             </select>
                             <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">

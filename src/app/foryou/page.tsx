@@ -1,13 +1,13 @@
 import React from 'react'
 import PageIntro from '../components/reused/PageIntro'
 import KeyLayout from '../components/reused/KeyLayout'
-import { RiSuitcase3Fill } from 'react-icons/ri'
+import { AiOutlineGift } from 'react-icons/ai'
 
 export const metadata = {
-    title: 'Mukunda | History-Of_medicine',
+    title: 'Mukunda | For You ',
     openGraph: {
-      title: 'Mukunda | History-Of_medicine',
-      description: 'History of medicine of Mukunda',
+      title: 'Mukunda | For You ',
+      description: 'For you from mukunda',
     },
   }
 
@@ -15,7 +15,7 @@ const page = () => {
     return (
         <KeyLayout>
             <div className='w-full h-full '>
-                <PageIntro title='History Of Medicine' icon={<><RiSuitcase3Fill /></>} pageintro='This is where I will share all my MBBS life' />
+                <PageIntro title='For You' icon={<><AiOutlineGift /></>} pageintro='This is where I will share all my researches' />
             </div>
         </KeyLayout>
     )

@@ -10,11 +10,11 @@ module.exports = {
       colors: {
         primary: '#F5F5F5',
         secondary: '#4E342E',
-        accent: '#81C784',
+        accent: '#3B82F6',
         dark: {
           primary: '#1F1F1F',
           secondary: '#D7CCC8',
-          accent: '#4CAF50',
+          accent: '#2563EB',
         },
       },
     },

@@ -5,8 +5,11 @@ import Link from 'next/link';
 import React, { useState } from 'react'
 
 import { FiUsers, FiBook, FiBriefcase, FiMail } from 'react-icons/fi';
-import { AiOutlineMenu } from 'react-icons/ai';
+import { AiOutlineBook, AiOutlineMenu } from 'react-icons/ai';
 import ThemeSwitcher from '@/utils/ThemeSwitcher';
+import Dropdown from './Dropdown';
+import { dropdowns, dropdowns2 } from './Header';
+import { LuBrain } from 'react-icons/lu';
 
 
 
@@ -41,23 +44,21 @@ const SideBarC = () => {
                     onClose={closeNav}
                     onOpen={openNav}
                     className='lg:hidden'>
-                    <div className='w-[75vw] sm:w-[65vw] md:w-[50vw] flex flex-col space-y-5 px-5 pt-20 text-xl  bg-white dark:bg-dark-primary h-full'>
+                    <div className='w-[75vw] sm:w-[65vw] md:w-[50vw] flex flex-col space-y-5 px-5 pt-20 text-xl  bg-accent dark:bg-dark-primary h-full'>
                         <div className='flex flex-col space-y-2'>
-                            <Link href='/medicalstudent' className='flex items-center text-black dark:text-white'>
-                                <FiUsers className='mr-2' />
-                                Medical Student
-                            </Link>
                             <Link href='/mbbslife' className='flex items-center text-black dark:text-white'>
-                                <FiBook className='mr-2' />
+                                <FiUsers className='mr-2' />
                                 MBBS Life
                             </Link>
-                            <Link href='/lifestyles' className='flex items-center text-black dark:text-white'>
+                            <Dropdown parent='My Views' parenticon={<LuBrain />} data={dropdowns} />
+          <Dropdown parent='Literature' parenticon={<AiOutlineBook />} data={dropdowns2} />
+                            <Link href='/research' className='flex items-center text-black dark:text-white'>
                                 <FiBriefcase className='mr-2' />
-                                Lifestyles
+                                Research
                             </Link>
-                            <Link href='/historyofmedicines' className='flex items-center text-black dark:text-white'>
+                            <Link href='/foryou' className='flex items-center text-black dark:text-white'>
                                 <FiMail className='mr-2' />
-                                History Of Medicines
+                                For You
                             </Link>
 
                         </div>
