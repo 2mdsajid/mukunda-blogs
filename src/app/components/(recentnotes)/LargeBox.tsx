@@ -1,9 +1,14 @@
 import { dummyBlog } from '@/utils/data'
+import { mongoNote } from '@/utils/types'
 import Image from 'next/image'
 import React from 'react'
 
-const LargeBox = () => {
-  const data = dummyBlog
+type TypeLargeBoxProps = {
+  data: mongoNote
+}
+
+const LargeBox = (props: TypeLargeBoxProps) => {
+  const data = props.data
   return (
     <div className='shadow-md rounded-md border border-primary dark:border-black my-5 lg:my-0'>
       <Image className='w-full rounded-t-md' width={200} height={100} alt={data.intro} src={data.introimage} />

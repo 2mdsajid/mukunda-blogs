@@ -66,7 +66,19 @@ const FormPreview = ({ formData, togglePreview }: PreviewProps) => {
                     if (closeButtonRef.current) {
                         closeButtonRef.current.click();
                     }
-                    router.push('/tmro_page')
+                    // const reval = await fetch(`/api/revalidate`)
+
+                    const reval = await fetch(`/api/revalidate`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
+                    const data = await reval.json()
+
+
+                    console.log("🚀 ~ file: FormPreview.tsx:71 ~ sendData ~ reval:", data)
+                    // router.push('/tmro_page')
                     return
                 } else {
                     setshoweditorProgress(false)
