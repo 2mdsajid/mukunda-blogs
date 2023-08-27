@@ -1,8 +1,8 @@
 import { mongoNote } from "./types";
 
 export const FRONTEND = 'http://localhost:3000'
-export const BACKEND = 'http://localhost:3001'
-// export const BACKEND = 'https://mukundaserver.adaptable.app'
+// export const BACKEND = 'http://localhost:3001'
+export const BACKEND = 'https://mukundaserver.adaptable.app'
 
 
 export const dummyBlog = {
