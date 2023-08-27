@@ -1,16 +1,20 @@
 import React from 'react'
 import MainCard from './MainCard'
 import Link from 'next/link'
+import { mongoNote } from '@/utils/types'
 
+type TypeRecentNotesProps = {
+    notes: mongoNote[]
+}
 
-const AllBlogs = () => {
-    const array = [1, 2, 3, 4, 5, 6]
+const AllBlogs = async (props: TypeRecentNotesProps) => {
+    const notes = props.notes
     return (
         <div className='max-w-full h-max my-10'>
             <div className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-10 py-4`}>
-                {array.map((note, index) => {
+                {notes.map((note, index) => {
                     return <div key={index} className={` my-5 m-2 border dark:border-black rounded-lg overflow-hidden shadow-md cursor-pointer hover:shadow-lg transform hover:scale-105 transition duration-300 ease-in-out`}>
-                        <MainCard />
+                        <MainCard data={note} />
                     </div>
                 })}
             </div>

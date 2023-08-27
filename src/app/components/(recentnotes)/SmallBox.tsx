@@ -2,10 +2,11 @@ import { dummyBlog } from '@/utils/data'
 import React from 'react'
 import Image from 'next/image'
 import { mongoNote } from '@/utils/types'
+import BlogReadButton from '../reused/BlogReadButton'
 
 type TypeLargeBoxProps = {
     data: mongoNote
-  }
+}
 
 const SmallBox = (props: TypeLargeBoxProps) => {
     const data = props.data
@@ -24,7 +25,7 @@ const SmallBox = (props: TypeLargeBoxProps) => {
                         })}
                     </p>
                 )}
-                <button className='px-3 py-1 my-3  w-max bg-dark-accent rounded-lg hover:bg-accent text-primary'>Read</button>
+                <BlogReadButton id={data.noteid} />
             </div>
         </div>
     )

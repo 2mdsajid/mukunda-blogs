@@ -51,7 +51,7 @@ const SideBarC = () => {
                                 MBBS Life
                             </Link>
                             <Dropdown parent='My Views' parenticon={<LuBrain />} data={dropdowns} />
-          <Dropdown parent='Literature' parenticon={<AiOutlineBook />} data={dropdowns2} />
+                            <Dropdown parent='Literature' parenticon={<AiOutlineBook />} data={dropdowns2} />
                             <Link href='/research' className='flex items-center text-black dark:text-white'>
                                 <FiBriefcase className='mr-2' />
                                 Research

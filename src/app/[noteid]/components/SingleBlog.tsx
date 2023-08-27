@@ -10,20 +10,14 @@ import { ParsedElement, setUniqueUserId } from '@/utils/functions';
 import LikesComponent from './LikesComponent';
 import CommentsDisplay from './CommentsDisplay';
 import SocialMediaShare from './SocialMediaShare';
-// import { useRouter } from 'next/navigation';
-
 
 const SingleNote = ({ note }: SingleNoteProps) => {
     const [uniqueid,setUniqueid] = useState('')
-    // const { query, isReady } = useRouter()
-
-    // const blogurl = encodeURIComponent(FRONTEND + '/' + note.noteid)
-
-    const blogurl = `https://aayushmakafle.com.np/Microsoft-One-Note:-Digital-Notetaking-with-Laptops`
-    // const keywords = note.keywords?.split(',') || [];
+    const blogurl = encodeURIComponent(FRONTEND + '/' + note.noteid)
 
     const AddViews = async () => {
         const uniqueid = await setUniqueUserId()
+        console.log("🚀 ~ file: SingleBlog.tsx:20 ~ AddViews ~ uniqueid:", uniqueid)
         setUniqueid(uniqueid)
 
         const isAdminCookie = Cookies.get('isAdmin');
@@ -31,16 +25,16 @@ const SingleNote = ({ note }: SingleNoteProps) => {
             return
         }
         
-        // const res = await fetch(BACKEND + '/addviews', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({
-        //         id: note._id,
-        //     }),
-        // });
-        // const data = await res.json();
+        const res = await fetch(BACKEND + '/addviews', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: note._id,
+            }),
+        });
+     
     }
 
     useEffect(() => {
@@ -107,15 +101,3 @@ const SingleNote = ({ note }: SingleNoteProps) => {
 }
 
 export default SingleNote
-
-
-
-            {/* <Head>
-                <title>{note.title}</title>
-                <meta name='description' content={note.intro} />
-                <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-                <meta name="og:title" content={note.title} />
-                <meta name="og:description" content={note.intro} />
-                <meta name="og:image" content={note.introimage} />
-                <meta property="og:type" content="article" />
-            </Head> */}

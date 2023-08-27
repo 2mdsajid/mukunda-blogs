@@ -284,6 +284,7 @@ const Addnote = ({id}:{id:string}) => {
                                 <option value="english">english</option>
                                 <option value="research">research</option>
                                 <option value="foryou">for you</option>
+                                <option value="medicine">medicine</option>
                                 <option value="test">test</option>
                             </select>
                             <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">

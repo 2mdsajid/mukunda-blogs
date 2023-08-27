@@ -4,7 +4,6 @@ import { FaFacebook, FaTwitter, FaWhatsapp } from 'react-icons/fa';
 const SocialMediaShare = ({ blogurl, title }: { blogurl: string, title: string }) => {
 
     const facebookShareLink = `https://www.facebook.com/dialog/share?href=${encodeURIComponent(blogurl)}&display=popup&show_story=true`;
-
     const twitterShareLink = `https://twitter.com/intent/tweet?url=${blogurl}&text=${encodeURIComponent(title)}`;
     const whatsappShareLink = `https://api.whatsapp.com/send?text=${`${blogurl}`}`;
     const linkedInShareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(blogurl)}`;

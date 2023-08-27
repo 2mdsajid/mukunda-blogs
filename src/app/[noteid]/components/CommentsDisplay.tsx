@@ -9,7 +9,6 @@ import React, { FormEvent, useEffect, useState } from 'react'
 import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
 const CommentsDisplay = ({ isadmin,notecomments, uniqueid, id }: {isadmin:boolean, notecomments: TypeComment[] | undefined, uniqueid: string, id: string }) => {
-console.log("🚀 ~ file: CommentsDisplay.tsx:12 ~ CommentsDisplay ~ isadmin:", isadmin)
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -25,11 +24,9 @@ console.log("🚀 ~ file: CommentsDisplay.tsx:12 ~ CommentsDisplay ~ isadmin:", 
 
         // Find the comment by commentId
         const comment = comments.find(comment => comment._id === commentid);
-
         if (comment) {
             const { likes } = comment;
             const isCommentLiked = likes.includes(uniqueid);
-
             if (isCommentLiked) {
                 comment.likes = likes.filter(id => id !== uniqueid);
             } else {
@@ -44,22 +41,22 @@ console.log("🚀 ~ file: CommentsDisplay.tsx:12 ~ CommentsDisplay ~ isadmin:", 
             }
         }
 
-        // try {
-        //     const res = await fetch(BACKEND + '/addcommentvote', {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //         body: JSON.stringify({
-        //             noteid: id,
-        //             commentid,
-        //             uniqueid
-        //         }),
-        //     });
-        //     const data = await res.json();
-        // } catch (error) {
-        //     console.log(error)
-        // }
+        try {
+            const res = await fetch(BACKEND + '/addcommentvote', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    noteid: id,
+                    commentid,
+                    uniqueid
+                }),
+            });
+            const data = await res.json();
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     // replies----------------------------
@@ -89,10 +86,6 @@ console.log("🚀 ~ file: CommentsDisplay.tsx:12 ~ CommentsDisplay ~ isadmin:", 
         setCommentReplyClick(true)
         const formData = new FormData(e.currentTarget);
 
-        // Retrieve form values using the input names
-        // const name = formData.get('name') as string;
-        // const email = formData.get('email') as string;
-        // const reply = formData.get('reply') as string;
         const formid = e.currentTarget.id
 
         // const res = await fetch(BACKEND + '/addreply', {
@@ -121,14 +114,6 @@ console.log("🚀 ~ file: CommentsDisplay.tsx:12 ~ CommentsDisplay ~ isadmin:", 
             updatedComments[currentCommentIndex].replies.push(newReply);
             setComments(updatedComments);
         }
-
-        // const data = await res.json();
-        // if (data.status === 201) {
-        //     // Clear the form fields
-        //     formData.set('name', 'llll');
-        //     formData.set('email', '');
-        //     formData.set('reply', '');
-        // }
         setReplyEmail('')
         setReplyName('')
         setReplyMessage('')
@@ -141,31 +126,31 @@ console.log("🚀 ~ file: CommentsDisplay.tsx:12 ~ CommentsDisplay ~ isadmin:", 
         e.preventDefault();
 
         setCommentclick(true)
-        // const res = await fetch(BACKEND + '/addcomment', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({
-        //         id,
-        //         name,
-        //         email,
-        //         comment,
-        //     }),
-        // });
+        const res = await fetch(BACKEND + '/addcomment', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id,
+                name,
+                email,
+                comment,
+            }),
+        });
 
         setComments([...comments, { name, email, comment, likes: [], replies: [], _id: 'someid' }])
 
         setCommentclick(false)
 
-        // const data = await res.json();
+        const data = await res.json();
 
-        // if (data.status === 201) {
-        //     console.log(data);
-        //     setName('')
-        //     setComment('')
-        //     setEmail('')
-        // }
+        if (data.status === 201) {
+            console.log(data);
+            setName('')
+            setComment('')
+            setEmail('')
+        }
 
     }
 
@@ -210,9 +195,9 @@ console.log("🚀 ~ file: CommentsDisplay.tsx:12 ~ CommentsDisplay ~ isadmin:", 
                                         </button>
                                         <span>{comment.likes.length}</span>
                                     </div>
-                                    <div>
+                                    {/* <div>
                                         <button id={comment._id} className='font-semibold' onClick={handleReplyButtonClick}>Reply</button>
-                                    </div>
+                                    </div> */}
                                 </div>
 
                                 {/* reply section starts */}
@@ -226,14 +211,14 @@ console.log("🚀 ~ file: CommentsDisplay.tsx:12 ~ CommentsDisplay ~ isadmin:", 
                                         </div>
                                     })}
                                 </div>
-                                {(replyFormId === comment._id) && <div>
+                                {/* {(replyFormId === comment._id) && <div>
                                     <form id={comment._id} onSubmit={(e) => handleCommentReplySubmit(e)} className={`bg-dark-accent w-full p-4 rounded-lg mt-10`}>
                                         <FancyInput value={replyname} setValueFunction={setReplyNameFunction} label="Name" />
                                         <FancyInput value={replyemail} setValueFunction={setReplyEmailFunction} label="Email" />
                                         <FancyTextBox value={replymessage} setValueFunction={setReplyMessageFunction} label="Your Reply" />
                                         <SubmitButton isClicked={commentClick} />
                                     </form>
-                                </div>}
+                                </div>} */}
                                 {/* reply section ends */}
                             </li>
                         ))}

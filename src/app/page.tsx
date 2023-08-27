@@ -8,16 +8,22 @@ import Footer from './components/footer/Footer'
 import { BACKEND } from '@/utils/data'
 import { mongoNote } from '@/utils/types'
 
-// https://blogwithkafle.adaptable.app/getrecentnotes
-
 const fetchRecentNotes = async () => {
   const res = await fetch(`${BACKEND}/getrecentnotes`)
   const data = await res.json()
   return data.notes as mongoNote[]
 }
 
+const fetchAllNotes = async () => {
+  const res = await fetch(`${BACKEND}/getallnotes`)
+  const data = await res.json()
+  return data.notes as mongoNote[]
+}
+
 export default async function Home() {
   const notes = await fetchRecentNotes()
+  const allnotes = await fetchAllNotes()
+
   return (
     <div className='w-screen  bg-primary text-black dark:bg-dark-primary dark:text-white'>
       <Header />
@@ -37,7 +43,7 @@ export default async function Home() {
         <section id='all blogs' className='min-h-screen pt-20 px-4 md:px-10 lg:px-20 xl:px-32 my-20'>
           <SectionTitle title='All Blogs' />
           <div className='w-full'>
-            <AllBlogs />
+            <AllBlogs notes={allnotes} />
           </div>
         </section>
 

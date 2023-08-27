@@ -11,7 +11,7 @@ import { RiEnglishInput } from 'react-icons/ri';
 import { BsBook } from 'react-icons/bs';
 import { TbSpeakerphone } from 'react-icons/tb';
 import { PiHandsPrayingLight } from 'react-icons/pi';
-
+import { CiStethoscope } from 'react-icons/ci'
 
 
 
@@ -30,6 +30,11 @@ export const dropdowns = [
     link: '/religion',
     label: 'Religion',
     icon: <PiHandsPrayingLight />,
+  },
+  {
+    link: '/medicine',
+    label: 'Medicine',
+    icon: <CiStethoscope />,
   },
 ];
 
@@ -51,15 +56,15 @@ const Header = () => {
   return (
     <div className='w-full h-[4rem] fixed top-0 z-50 border-b bg-accent dark:bg-dark-primary  border-secondary dark:border-dark-accent '>
       <div className='w-full h-full absolute  flex items-center justify-between px-4 md:px-10 lg:px-20 xl:px-32 '>
-        <div className='text-black dark:text-white font-bold tracking-wider'>
-          <Link href='/'>MUKUNDA</Link>
+        <div className='text-white dark:text-white font-bold tracking-wider'>
+          <Link href='/'>MUKUND</Link>
         </div>
 
         {/* hidden in small devices */}
         <div className='space-x-3 text-sm lg:text-lg lg:space-x-4 hidden sm:flex items-center font-semibold'>
           <Link href='/mbbslife' className='navLink text-black dark:text-white'>MBBS Life</Link>
           <Dropdown parent='My Views' data={dropdowns} />
-          <Dropdown parent='Literature'  data={dropdowns2} />
+          <Dropdown parent='Literature' data={dropdowns2} />
           <Link href='/research' className='navLink text-black dark:text-white'>Research</Link>
           <Link href='/foryou' className='navLink text-black dark:text-white'>For You</Link>
         </div>

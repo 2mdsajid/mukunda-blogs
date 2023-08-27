@@ -5,26 +5,26 @@ import { AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
 const Likes = ({upvote,uniqueid,id}:{upvote:string[],uniqueid:string,id:string}) => {
     const [notelikes, setNoteLikes] = useState<string[]>(upvote)
-    
 
     const handleLike = async () => {
         const isNoteLiked = notelikes.includes(uniqueid);
+        console.log("🚀 ~ file: LikesComponent.tsx:11 ~ handleLike ~ isNoteLiked:", isNoteLiked)
         if (isNoteLiked) {
             setNoteLikes(notelikes.filter(id => id !== uniqueid));
         } else {
             setNoteLikes([...notelikes, uniqueid]);
         }
-        // const res = await fetch(BACKEND + '/addvote', {
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify({
-        //         id,
-        //         uniqueid
-        //     }),
-        // });
-        // const data = await res.json();
+        const res = await fetch(BACKEND + '/addvote', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id,
+                uniqueid
+            }),
+        });
+        const data = await res.json();
     }
 
 

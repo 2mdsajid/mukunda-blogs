@@ -2,9 +2,14 @@ import { dummyBlog } from '@/utils/data'
 import Image from 'next/image'
 import React from 'react'
 import BlogReadButton from '../reused/BlogReadButton'
+import { mongoNote } from '@/utils/types'
 
-const MainCard = () => {
-    const data = dummyBlog
+type TypeLargeBoxProps = {
+    data: mongoNote
+  }
+
+const MainCard = (props: TypeLargeBoxProps) => {
+    const data = props.data
     return (
         <div>
             <Image className='w-full rounded-t-md' width={200} height={100} alt={data.intro} src={data.introimage} />
@@ -21,7 +26,7 @@ const MainCard = () => {
                         })}
                     </p>
                 )}
-<BlogReadButton id={data.noteid} />
+                <BlogReadButton id={data.noteid} />
             </div>
         </div>
     )
