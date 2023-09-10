@@ -23,7 +23,11 @@ export default function RootLayout({
       </head>
       <body>
         <ThemeWrapper>
-          {children}
+          {/* {children} */}
+          <div className='w-screen h-screen flex items-center justify-center'>
+
+          <img src="/meme.jpg" alt="meme" className='w-[90%] sm:w-[70%] md:w-[65%] lg:w-[55%] xl:w-[50%] mx-auto' />
+          </div>
         </ThemeWrapper>
       </body>
     </html>
