@@ -7,6 +7,8 @@ import AllBlogs from './components/(allblogs)/AllBlogs'
 import Footer from './components/footer/Footer'
 import { BACKEND } from '@/utils/data'
 import { mongoNote } from '@/utils/types'
+import Timer from './components/reused/Timer'
+import TimerComponent from './components/reused/TimerComponent'
 
 const fetchRecentNotes = async () => {
   const res = await fetch(`${BACKEND}/getrecentnotes`)
@@ -27,6 +29,7 @@ export default async function Home() {
   return (
     <div className='w-screen  bg-primary text-black dark:bg-dark-primary dark:text-white'>
       <Header />
+      <TimerComponent />
       <div className='w-full  pt-20 '>
 
         <section className='h-[80vh] px-4 md:px-10 lg:px-20 xl:px-32 mt-5 flex items-center justify-center'>
