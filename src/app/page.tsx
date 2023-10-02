@@ -29,7 +29,7 @@ export default async function Home() {
   return (
     <div className='w-screen  bg-primary text-black dark:bg-dark-primary dark:text-white'>
       <Header />
-      <TimerComponent />
+{/*       <TimerComponent /> */}
       <div className='w-full  pt-20 '>
 
         <section className='h-[80vh] px-4 md:px-10 lg:px-20 xl:px-32 mt-5 flex items-center justify-center'>
